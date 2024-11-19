@@ -4,7 +4,7 @@ const Transaction = require("../models/Transaction");
 
 const router = express.Router();
 
-// API to fetch and initialize data
+
 router.get("/initialize", async (req, res) => {
   try {
     const response = await axios.get(
@@ -12,7 +12,7 @@ router.get("/initialize", async (req, res) => {
     );
     const transactions = response.data;
 
-    // Clear existing data and insert new data
+   
     await Transaction.deleteMany({});
     await Transaction.insertMany(transactions);
 
@@ -22,9 +22,9 @@ router.get("/initialize", async (req, res) => {
   }
 });
 
-// Additional APIs (e.g., /transactions, /statistics, etc.)
+
 router.get("/transactions", async (req, res) => {
-  // Implement search and pagination logic here
+ 
 });
 
 module.exports = router;
